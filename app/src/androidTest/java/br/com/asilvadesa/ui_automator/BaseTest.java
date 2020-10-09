@@ -2,6 +2,7 @@ package br.com.asilvadesa.ui_automator;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.platform.app.InstrumentationRegistry;
@@ -24,8 +25,13 @@ public class BaseTest {
     public void initialize(){
         mDevice = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
         mDevice.pressHome();
+
+
     }
 
+    protected void setCommandAdbShell(String command){
+        InstrumentationRegistry.getInstrumentation().getUiAutomation().executeShellCommand(command);
+    }
 
 
     protected UiObject selectObjectGreatGrandsonWithResourceId(String res, int child, int grandChild, int greatGrandson) throws UiObjectNotFoundException {
@@ -42,6 +48,8 @@ public class BaseTest {
     protected void openApplicationWithPackage(String packageName) {
         Context context = getApplicationContext();
         Intent intent = context.getPackageManager().getLaunchIntentForPackage(packageName);
+        String aPackage = intent.getPackage();
+        Log.i("NOME ", aPackage);
         context.startActivity(intent);
     }
 }
