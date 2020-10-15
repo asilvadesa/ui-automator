@@ -6,6 +6,6 @@ Testes da interface do usuário (IU) permitem garantir que seu app atenda aos re
 
 Acompanhe as tecnologias e soluções presentes neste projeto abaixo:
 
-- Expresso
+- Espresso
 - UI Automator
 - JUnit
